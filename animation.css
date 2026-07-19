@@ -1,0 +1,117 @@
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, .35);
+    }
+
+    50% {
+        box-shadow: 0 0 45px rgba(139, 92, 246, .8);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, .35);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.hero-text {
+    animation: fadeUp 1s ease;
+}
+
+.photo-card {
+    animation: float 5s ease-in-out infinite;
+}
+
+.photo-card img {
+    transition: .5s;
+}
+
+.photo-card:hover img {
+    transform: scale(1.05);
+}
+
+.photo-card::before {
+    animation: glow 4s infinite;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .2);
+    transform: skewX(-25deg);
+    transition: .7s;
+}
+
+.btn:hover::before {
+    left: 120%;
+}
+
+#typing-text {
+    width: max-content;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #3b82f6;
+    animation:
+        typing 3s steps(20, end),
+        blink .7s infinite;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: 1s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
